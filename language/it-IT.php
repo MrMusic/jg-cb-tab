@@ -2,6 +2,10 @@
 // ensure this file is being included by a parent file:
 if ( ! ( defined( '_VALID_CB' ) || defined( '_JEXEC' ) || defined( '_VALID_MOS' ) ) ) { die( 'Direct Access to this location is not allowed.' ); }
 
+DEFINE("_JoomGallery_Images", "Images");
+DEFINE("_JoomGallery_Nametags", "Images tagged");
+DEFINE("_JoomGallery_Favourites", "Images favorited");
+DEFINE("_JoomGallery_Comments", "Images commented");
 DEFINE("_JG_GT_USER_NO_IMAGES", "L'utente non ha caricato nessun immagine in questa galleria.");
 DEFINE("_JG_GT_TOTAL_IMAGES", "Numero totale delle immagini: <strong>%u</strong>"); # %u will be replaced by number
 DEFINE("_JG_GT_OVERALL_RATING", "Numero voti: <strong>%u</strong> (%u votes)"); # %s will be replaced by rating, %u by number votes

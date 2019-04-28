@@ -2,6 +2,10 @@
 // ensure this file is being included by a parent file:
 if ( ! ( defined( '_VALID_CB' ) || defined( '_JEXEC' ) || defined( '_VALID_MOS' ) ) ) { die( 'No permitido el acceso al directorio.' ); }
 
+DEFINE("_JoomGallery_Images", "Images");
+DEFINE("_JoomGallery_Nametags", "Images tagged");
+DEFINE("_JoomGallery_Favourites", "Images favorited");
+DEFINE("_JoomGallery_Comments", "Images commented");
 DEFINE("_JG_GT_USER_NO_IMAGES", "El usuario no ha subido imagenes a la galeria.");
 DEFINE("_JG_GT_TOTAL_IMAGES", "Número total de imagenes: <strong>%u</strong>"); # %u will be replaced by number
 DEFINE("_JG_GT_OVERALL_RATING", "Puntuación promedio: <strong>%u</strong> (%u votes)"); # %s will be replaced by rating, %u by number votes

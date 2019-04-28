@@ -19,16 +19,17 @@ defined('_JEXEC') or die('Direct Access to this location is not allowed.');
  *
  * Outputs a user's images in JoomGallery *
  */
-class getGalleryTab extends cbTabHandler {
+class getGalleryTab extends cbTabHandler 
+{
   var $_interface;
   var $_mainframe;
   var $_my;
 
-  function getGalleryTab()
+  function __construct()
   {
     $this->cbTabHandler();
-    $this->_mainframe = & JFactory::getApplication();
-    $this->_my = & JFactory::getUser();
+    $this->_mainframe = JFactory::getApplication();
+    $this->_my = JFactory::getUser();
 
     $params   = JComponentHelper::getParams('com_languages');
     $frontend_lang = $params->get('site', 'en-GB');
@@ -58,9 +59,19 @@ class getGalleryTab extends cbTabHandler {
       include_once($pluginPath."en-GB.php");
     }
   }
+
+
+  function getTabTitle($tab, $user, $ui, $postdata)
+  {
+    $title = _JoomGallery_Images;
+    $imgcount = $this->_interface->getNumPicsOfUser($user->id);
+
+    return $title . ' <span class="badge badge-default">' . (int) $imgcount . '</span>';
+  }
+
 /**
  * Creates and returns the header of the Gallery tab
- * conatining No. of images, and upload-link if configured
+ * containing No. of images, and upload-link if configured
  **/
   function getHeader($own, $total, $showRating = 0, $ratingStats = NULL)
   {
@@ -238,12 +249,20 @@ class getGalleryTab extends cbTabHandler {
  */
 class getGalleryTagsTab extends getGalleryTab
 {
-  function getGalleryTagsTab()
+  function __construct()
   {
-    $this->getGalleryTab();
+    parent::__construct();
   }
 
-  function getHeader($total)
+  function getTabTitle($tab, $user, $ui, $postdata)
+  {
+    $title = _JoomGallery_Nametags;
+    $imgcount = $this->_interface->getNumPicsUserTagged($user->id);
+
+    return $title . ' <span class="badge badge-default">' . (int) $imgcount . '</span>';
+  }
+
+  function getHeader($own, $total, $showRating = 0, $ratingStats = NULL)
   {
     $return = '';
 
@@ -316,7 +335,7 @@ class getGalleryTagsTab extends getGalleryTab
     // Include Header (Information) on first page:
     if ($pagingParams["gallerytagstab_limitstart"] == "0")
     {
-      $return .= $this->getHeader($total);
+      $return .= $this->getHeader(null, $total, null, null);
     }
 
     // output nothing else when there are no pics:
@@ -348,12 +367,20 @@ class getGalleryTagsTab extends getGalleryTab
  */
 class getGalleryFavouritesTab extends getGalleryTab
 {
-  function getGalleryFavouritesTab()
+  function __construct()
   {
-    $this->getGalleryTab();
+    parent::__construct();
   }
 
-  function getHeader($own,$total)
+  function getTabTitle($tab, $user, $ui, $postdata)
+  {
+    $title = _JoomGallery_Favourites;
+    $imgcount = $this->_interface->getNumPicsUserFavoured($user->id);
+
+    return $title . ' <span class="badge badge-default">' . (int) $imgcount . '</span>';
+  }
+
+  function getHeader($own, $total, $showRating = 0, $ratingStats = NULL)
   {
     $return = '';
 
@@ -440,7 +467,7 @@ class getGalleryFavouritesTab extends getGalleryTab
     // Include Header (Information) on first page:
     if ($pagingParams["galleryfavstab_limitstart"] == "0")
     {
-      $return .= $this->getHeader($ownProfile, $total);
+      $return .= $this->getHeader($ownProfile, $total, null, null);
     }
 
     // output nothing else when there are no pics:
@@ -468,12 +495,20 @@ class getGalleryFavouritesTab extends getGalleryTab
 
 class getGalleryCommentsTab extends getGalleryTab
 {
-  function getGalleryCommentsTab()
+  function __construct()
   {
-    $this->getGalleryTab();
+    parent::__construct();
   }
 
-  function getHeader($total)
+  function getTabTitle($tab, $user, $ui, $postdata)
+  {
+    $title = _JoomGallery_Comments;
+    $imgcount = $this->_interface->getNumCommentsUser($user->id);
+
+    return $title . ' <span class="badge badge-default">' . (int) $imgcount . '</span>';
+  }
+
+  function getHeader($own, $total, $showRating = 0, $ratingStats = NULL)
   {
     $return = '';
 
@@ -545,7 +580,7 @@ class getGalleryCommentsTab extends getGalleryTab
     // Include Header (Information) on first page:
     if ($pagingParams["commentstab_limitstart"] == "0")
     {
-      $return .= $this->getHeader($total);
+      $return .= $this->getHeader(null, $total, null, null);
     }
 
     // Output nothing else when there are no pics:

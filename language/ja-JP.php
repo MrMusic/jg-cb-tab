@@ -3,6 +3,10 @@
 // ensure this file is being included by a parent file:
 if ( ! ( defined( '_VALID_CB' ) || defined( '_JEXEC' ) || defined( '_VALID_MOS' ) ) ) { die( 'Direct Access to this location is not allowed.' ); }
 
+DEFINE("_JoomGallery_Images", "Images");
+DEFINE("_JoomGallery_Nametags", "Images tagged");
+DEFINE("_JoomGallery_Favourites", "Images favorited");
+DEFINE("_JoomGallery_Comments", "Images commented");
 DEFINE("_JG_GT_USER_NO_IMAGES", "投稿されたイメージはありません。　");
 DEFINE("_JG_GT_TOTAL_IMAGES", "イメージの総数: <strong>%u</strong>"); # %u は数と取り変わります。
 DEFINE("_JG_GT_OVERALL_RATING", "評価の平均値: <strong>%u</strong> (%u votes)"); # %s は評価の位と取り変わります

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cbinstall version="1.0" type="plugin" group="user">
   <name>JoomGallery</name>
-  <author>Armin Hornung-JoomGallery team</author>
-  <creationDate>2012-02-14</creationDate>
-  <copyright>(C) 2009 Armin Hornung, 2010-2012 JoomGallery team</copyright>
+  <author>Armin Hornung, since 2019 JoomGallery::ProjectTeam</author>
+  <creationDate>2019/14/15</creationDate>
+  <copyright>(C) 2009 Armin Hornung, 2010 - 2019 JoomGallery::ProjectTeam</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-  <authorEmail>team@joomgallery.net</authorEmail>
-  <authorUrl>http://www.joomgallery.net</authorUrl>
-  <version>1.7</version>
+  <authorUrl>www.joomgalleryfriends.net</authorUrl>
+  <version>3.0.1</version>
   <description>Provides some tabs for Community Builder for usage with JoomGallery. Be sure to publish the Plugin before usage. Then, you can configure, publish and unpublish each tab of it separately in the CB Tab Management.</description>
   <files>
     <filename plugin="cb.joomgallerytab">cb.joomgallerytab.php</filename>
@@ -47,6 +46,8 @@
           <option value="cmtcount ASC">Comments (least commented first)</option>
           <option value="rating DESC">Rating (best first)</option>
           <option value="rating ASC">Rating (worst first)</option>
+          <option value="jg.catid ASC, ordering ASC">Cat-id, Ordering ASC</option>
+          <option value="jg.catid ASC, ordering DESC">Cat-id, Ordering DESC</option>
         </param>
         <param name="categoryfilter" type="text" size="15" default="" label="Display only from categories" description="Enter a comma-separated list of category-IDs to display only pictures from these categories (e.g. &quot;1,5,6&quot;). Leave empty (default) to show pictures from all categories. This option requires JoomGallery 1.0.1, 1.5, or later!" />
         <param name="picsperpage" type="text" size="5" default="" label="Pictures per Page" description="Leave empty (default) to use the setting from the JoomGallery component" />
