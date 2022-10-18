@@ -1,10 +1,8 @@
 <?php
-// $HeadURL: https://joomgallery.org/svn/joomgallery/JG-1.5/Addons/Plugin%20CB%20GalleryTab/trunk/plug_gallery-tab/cb.gallerytab.php $
-// $Id: cb.gallerytab.php 1867 2010-01-19 07:34:28Z aha $
 /****************************************************************************************\
  **   JoomGallery CB-Tab                                                                 **
  **   By: JoomGallery::ProjectTeam                                                       **
- **   Copyright (C) 2008 - 2012  JoomGallery::ProjectTeam                                **
+ **   Copyright (C) 2008 - 2022  JoomGallery::ProjectTeam                                **
  **   Based on: Tab for Community Builder by Armin Hornung                               **
  **   Released under GNU GPL Public License                                              **
  **   License: http://www.gnu.org/copyleft/gpl.html or have a look                       **
@@ -61,7 +59,7 @@ class getGalleryTab extends cbTabHandler
   }
 
 
-  function getTabTitle($tab, $user, $ui, $postdata)
+  function getTabTitle($tab, $user, $ui, $postdata, $reason = NULL)
   {
     $title = _JoomGallery_Images;
     $imgcount = $this->_interface->getNumPicsOfUser($user->id);
@@ -254,7 +252,7 @@ class getGalleryTagsTab extends getGalleryTab
     parent::__construct();
   }
 
-  function getTabTitle($tab, $user, $ui, $postdata)
+  function getTabTitle($tab, $user, $ui, $postdata, $reason = NULL)
   {
     $title = _JoomGallery_Nametags;
     $imgcount = $this->_interface->getNumPicsUserTagged($user->id);
@@ -372,7 +370,7 @@ class getGalleryFavouritesTab extends getGalleryTab
     parent::__construct();
   }
 
-  function getTabTitle($tab, $user, $ui, $postdata)
+  function getTabTitle($tab, $user, $ui, $postdata, $reason = NULL)
   {
     $title = _JoomGallery_Favourites;
     $imgcount = $this->_interface->getNumPicsUserFavoured($user->id);
@@ -500,7 +498,7 @@ class getGalleryCommentsTab extends getGalleryTab
     parent::__construct();
   }
 
-  function getTabTitle($tab, $user, $ui, $postdata)
+  function getTabTitle($tab, $user, $ui, $postdata, $reason = NULL)
   {
     $title = _JoomGallery_Comments;
     $imgcount = $this->_interface->getNumCommentsUser($user->id);
